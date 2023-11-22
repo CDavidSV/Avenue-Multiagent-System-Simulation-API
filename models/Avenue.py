@@ -14,6 +14,7 @@ class Avenue(mesa.Model):
         self.car_count = 0
         self.car_id = 0
         self.steps_until_next_car = 1
+        self.car_obj = []
 
         # Variables que manejan las entradas a la avenida
         self.main_lane_length = main_lane_length
@@ -41,7 +42,37 @@ class Avenue(mesa.Model):
             self.schedule.add(traffic_light)
             self.grid.place_agent(traffic_light, (x_pos, y_pos))
 
+        # Guardar los carros que seran instanciados en un arreglo
+        for i in range(self.cars):
+            random_color = random.randint(1, 4) # 1: red, 2: blue, 3: green, 4: yellow
+            random_speed = random.randint(1, 3) # elegir una velocidad entre 1 y 3
+            random_reaction_time = random.randint(1, 3) # elegir un tiempo de reaccion entre 1 y 3
+
+            lane = random.randint(0, 1) # Decidir si el carro entra por la avenida o por la entrada (1: avenida, 0: entrada)
+            if lane == 0:
+                random_pos = (self.grid.width - 1, random.choice(self.intersections_pos)[1])
+            else:
+                random_pos = (random.randint(self.first_lane, 3), 0)
+
+            new_agent = Car(self.get_next_id(), self, random_color, random_speed, random_reaction_time)
+            self.car_obj.append((new_agent, random_pos))
+
         self.add_car()
+    
+    def get_initial_car_positions(self):
+        """Retorna un diccionario con las posiciones iniciales de los carros"""
+        cars = []
+        for obj in self.car_obj:
+            cars.append({
+                "id": obj[0].unique_id,
+                "pos": {
+                    "x": obj[1][0],
+                    "y": 0,
+                    "z": obj[1][1]
+                }
+            })
+
+        return { "car_initial_positions": cars } 
 
     def get_direction(self, pos):
         """Retorna la direccion en la que se mueve el carro en la posicion dada"""
@@ -77,17 +108,7 @@ class Avenue(mesa.Model):
         if self.car_count >= self.cars:
             return
 
-        random_color = random.randint(1, 4) # 1: red, 2: blue, 3: green, 4: yellow
-        random_speed = random.randint(1, 3) # elegir una velocidad entre 1 y 3
-        random_reaction_time = random.randint(1, 3) # elegir un tiempo de reaccion entre 1 y 3
-
-        lane = random.randint(0, 1) # Decidir si el carro entra por la avenida o por la entrada (1: avenida, 0: entrada)
-        if lane == 0:
-            random_pos = (self.grid.width - 1, random.choice(self.intersections_pos)[1])
-        else:
-            random_pos = (random.randint(self.first_lane, 3), 0)
-
-        new_agent = Car(self.get_next_id(), self, random_color, random_speed, random_reaction_time)
+        new_agent, random_pos = self.car_obj[0]
         self.schedule.add(new_agent)
         self.grid.place_agent(new_agent, random_pos)
 

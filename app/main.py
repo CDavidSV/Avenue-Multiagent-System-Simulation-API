@@ -24,8 +24,11 @@ async def initialize_simulation(cars: int, all_lanes: bool):
 
     # creamos la simulación y la guardamos en el diccionario
     lane_length = 60
-    sims_dict[sim_id] = Avenue(all_lanes, cars, lane_length)
-    return { "sim_id": sim_id }
+    model = Avenue(all_lanes, cars, lane_length)
+    sims_dict[sim_id] = model
+    
+    data = model.get_initial_car_positions()
+    return { "sim_id": sim_id, "data": data }
 
 @app.get("/api/sim_step")
 async def simulation_step(sim_id: str):

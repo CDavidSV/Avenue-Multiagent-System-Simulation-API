@@ -44,7 +44,7 @@ class Car(mesa.Agent):
         # Revisar si hay un carro en frente. Si lo hay, reducir la velocidad por iteracion
         # Esto revisa cada paso respecto a la velocidad del carro. Por ejemplo, si el carro tiene velocidad 3, se revisa cada celda en frente hasta la 3ra celda
         new_pos = (x_pos, y_pos)
-        for _ in range(1, self.speed):
+        for _ in range(self.speed):
             # Obtener la direccion actual del carro
             direction = self.model.get_direction(new_pos)
             delta_x, delta_y = self.direction_deltas[direction]

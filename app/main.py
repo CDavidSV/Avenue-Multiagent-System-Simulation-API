@@ -1,10 +1,19 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from uuid import uuid4
 from models.Avenue import Avenue
 
 # Para correr usar: uvicorn app.main:app --host localhost --port 3000 --reload
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 sims_dict = {}
 

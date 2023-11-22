@@ -145,8 +145,6 @@ class Avenue(mesa.Model):
                 elif isinstance(obj, Car): # Carro agregamos su id y su posicion
                     cars.append({
                         "id": obj.unique_id,
-                        "speed": obj.speed,
-                        "reaction_time": obj.reaction_time,
                         "pos": {
                             "x": x,
                             "y": 0,

@@ -108,7 +108,7 @@ class Avenue(mesa.Model):
         if self.car_count >= self.cars:
             return
 
-        new_agent, random_pos = self.car_obj[0]
+        new_agent, random_pos = self.car_obj.pop(0)
         self.schedule.add(new_agent)
         self.grid.place_agent(new_agent, random_pos)
 

@@ -19,7 +19,7 @@ async def initialize_simulation(cars: int, all_lanes: bool):
     return { "sim_id": sim_id }
 
 @app.get("/api/sim_step")
-async def initialize_simulation(sim_id: str):
+async def simulation_step(sim_id: str):
     if sim_id not in sims_dict:
         raise HTTPException(status_code=404, detail="Simulation not found")
     

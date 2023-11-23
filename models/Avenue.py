@@ -65,6 +65,7 @@ class Avenue(mesa.Model):
         for obj in self.car_obj:
             cars.append({
                 "id": obj[0].unique_id,
+                "color": obj[0].color,
                 "pos": {
                     "x": obj[1][0],
                     "y": 0,

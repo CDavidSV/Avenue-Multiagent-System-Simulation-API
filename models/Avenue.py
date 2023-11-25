@@ -56,8 +56,6 @@ class Avenue(mesa.Model):
 
             new_agent = Car(self.get_next_id(), self, random_color, random_speed, random_reaction_time)
             self.car_obj.append((new_agent, random_pos))
-
-        self.add_car()
     
     def get_initial_car_positions(self):
         """Retorna un diccionario con las posiciones iniciales de los carros"""

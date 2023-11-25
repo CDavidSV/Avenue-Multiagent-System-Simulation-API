@@ -56,6 +56,9 @@ class Avenue(mesa.Model):
 
             new_agent = Car(self.get_next_id(), self, random_color, random_speed, random_reaction_time)
             self.car_obj.append((new_agent, random_pos))
+        
+        self.current_car_index = 0
+        self.add_car()
     
     def get_initial_car_positions(self):
         """Retorna un diccionario con las posiciones iniciales de los carros"""
@@ -107,7 +110,8 @@ class Avenue(mesa.Model):
         if self.car_count >= self.cars:
             return
 
-        new_agent, random_pos = self.car_obj.pop(0)
+        new_agent, random_pos = self.car_obj[self.current_car_index]
+        self.current_car_index += 1
         self.schedule.add(new_agent)
         self.grid.place_agent(new_agent, random_pos)
 

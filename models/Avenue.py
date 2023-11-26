@@ -46,7 +46,7 @@ class Avenue(mesa.Model):
         for i in range(self.cars):
             random_color = random.randint(1, 4) # 1: red, 2: blue, 3: green, 4: yellow
             random_speed = random.randint(1, 3) # elegir una velocidad entre 1 y 3
-            random_reaction_time = random.randint(1, 3) # elegir un tiempo de reaccion entre 1 y 3
+            random_reaction_time = random.randint(2, 3) # elegir un tiempo de reaccion entre 1 y 3
 
             lane = random.randint(0, 1) # Decidir si el carro entra por la avenida o por la entrada (1: avenida, 0: entrada)
             if lane == 0:
@@ -179,8 +179,8 @@ class Avenue(mesa.Model):
         return { "data": { "Traffic_Lights": Traffic_Lights, "car_positions": cars } } # Retornamos un diccionario con los datos
 
     def random_step_interval(self):
-        """Retorna un numero aleatorio entre 1 y 3 para determinar cada cuantos steps se agrega un carro"""
-        return random.randint(1, 3)
+        """Retorna un numero aleatorio entre 1 y 2 para determinar cada cuantos steps se agrega un carro"""
+        return random.randint(1, 2)
 
     def step(self):
         # Agregar un carro cada cierta cantidad de steps

@@ -102,7 +102,7 @@ class Car(mesa.Agent):
             return new_pos 
 
         # Obtener los vecinos del carro
-        neighbors = self.model.grid.get_neighbors(self.pos, moore=True, include_center=False, radius=2)
+        neighbors = self.model.grid.get_neighbors(self.pos, moore=True, include_center=False, radius=3)
         
         # Determinar cual es la distancia al carro mas cercano en cada carril
         left_lane_dist = self.nearest_car_distance(neighbors, xPos - 1)

@@ -9,7 +9,7 @@ Este repositorio es usado en conjunto con el repositorio [RETO-MultiAgentes-UNIT
 2. Uvicorn no es necesario pero es recomendado para iniciar el servidor.
 3. correr `uvicorn app.main:app --host <IP> --port <port>` para iniciar el servidor.
 
-## Required Libraries
+## Librerías
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Mesa](https://mesa.readthedocs.io/en/stable/)
 - [uvicorn](https://www.uvicorn.org/)

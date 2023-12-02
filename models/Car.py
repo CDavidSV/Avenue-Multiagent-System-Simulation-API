@@ -109,10 +109,10 @@ class Car(mesa.Agent):
         right_lane_dist = self.nearest_car_distance(neighbors, xPos + 1)
 
         # Decidir a que carril moverse
-        if left_lane_dist > right_lane_dist and not self.model.has_car((xPos - 1, yPos)) and xPos > self.model.first_lane:
+        if left_lane_dist >= right_lane_dist and not self.model.has_car((xPos - 1, yPos)) and xPos > self.model.first_lane:
             self.curr_iter = 0
             return (xPos - 1, yPos) # Moverse al canal izquierdo
-        elif right_lane_dist > left_lane_dist and not self.model.has_car((xPos + 1, yPos)) and xPos < 3:
+        elif right_lane_dist >= left_lane_dist and not self.model.has_car((xPos + 1, yPos)) and xPos < 3:
             self.curr_iter = 0
             return (xPos + 1, yPos) # Moverse al canal derecho
 

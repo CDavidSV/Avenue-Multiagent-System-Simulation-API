@@ -25,7 +25,7 @@ class Avenue(mesa.Model):
         # Mesa
         self.id_counter = 0
         self.grid = mesa.space.MultiGrid(3 + self.entry_lane_length, self.main_lane_length, False)
-        self.schedule = mesa.time.SimultaneousActivation(self)
+        self.schedule = mesa.time.BaseScheduler(self)
         self.data_collector = mesa.DataCollector(
             model_reporters={"Grid": self.get_grid}
         )

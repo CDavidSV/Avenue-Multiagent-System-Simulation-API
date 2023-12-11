@@ -4,10 +4,11 @@
 Este repositorio es usado en conjunto con el repositorio [RETO-MultiAgentes-UNITY](https://github.com/JCooleyM/RETO-MultiAgentes-UNITY) para la visualización de la simulación.
 
 Equipo:
-Carlos David Sandoval Vargas
-[Fernando Enrique Martínez Rodríguez](https://github.com/FernandoMartinez03)
-[Fernando Aurelio Burgos Sánchez](https://github.com/FernandoBurgos)
-[Jorge Cooley Magallanes](https://github.com/JCooleyM)
+
+- Carlos David Sandoval Vargas
+- [Fernando Enrique Martínez Rodríguez](https://github.com/FernandoMartinez03)
+- [Fernando Aurelio Burgos Sánchez](https://github.com/FernandoBurgos)
+- [Jorge Cooley Magallanes](https://github.com/JCooleyM)
 
 **Requiere Python 3.11 o superior**
 

@@ -3,7 +3,13 @@
 
 Este repositorio es usado en conjunto con el repositorio [RETO-MultiAgentes-UNITY](https://github.com/JCooleyM/RETO-MultiAgentes-UNITY) para la visualización de la simulación.
 
-** Requiere Python 3.11 o superior **
+Equipo:
+Carlos David Sandoval Vargas
+[Fernando Enrique Martínez Rodríguez](https://github.com/FernandoMartinez03)
+[Fernando Aurelio Burgos Sánchez](https://github.com/FernandoBurgos)
+[Jorge Cooley Magallanes](https://github.com/JCooleyM)
+
+**Requiere Python 3.11 o superior**
 
 1. Clonar el repositorio
 2. Uvicorn no es necesario pero es recomendado para iniciar el servidor.
